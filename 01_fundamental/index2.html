@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Star* Pattern</title>
+    </head>
+    <body>
+        <h1>Star* Pattern</h1>
+        <p>Click show button to see the star* pattern</p>
+
+        <button onclick="show()">Show</button>
+        <button>Change</button>
+        <button onclick="add()">Add</button>
+        <button onclick="minus()">Minus</button>
+
+        <p id="output"></p>
+    </body>
+    <script>
+        let output = document.getElementById("output")
+        let row = 5
+        let type = 0 // 0 => star pattern, 1 => number pattern
+
+        function generateStars (n) {
+            let stars = ""
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j <= i; j++) {
+                    stars += " * "
+                }
+
+                stars += "<br/>"
+            }
+
+            return stars
+        }
+
+        function show () {
+            const stars = generateStars(row)
+            output.innerHTML = stars
+        }
+
+        function minus () {
+            row -= 1
+            if (row <= 0) return
+
+            const stars = generateStars(row)
+            output.innerHTML = stars
+        }
+
+        function add () {
+            row += 1
+
+            const stars = generateStars(row)
+            output.innerHTML = stars
+        }
+    </script>
+</html>

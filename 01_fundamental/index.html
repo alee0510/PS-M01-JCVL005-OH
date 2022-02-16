@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic DOM Manipulation</title>
+        <style>
+            body {
+                width: 50%;
+            }
+        </style>
+    </head>
+
+        <div id="header">
+            <h1>Basic DOM Manipulation</h1>
+        </div>
+        <p>The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web. This guide will introduce the DOM, look at how the DOM represents an HTML document in memory and how to use APIs to create web content and applications.</p>
+        
+        <button onclick="changeHeader()">Change Header</button> <br/>
+        <input type="radio" name="header" value="h1" checked/><h1>Heading 1</h1>
+        <input type="radio" name="header" value="h2"/><h2>Heading 1</h2>
+        <input type="radio" name="header" value="h3"/><h3>Heading 1</h3>
+ 
+        <button>Change Header Color</button>
+        <input type="radio" name="color" checked/> <span>Red</span>
+        <input type="radio" name="color"/> <span>Green</span>
+        <input type="radio" name="color"/> <span>Blue</span>
+
+        <br>
+        <label>Text Font Size</label>
+        <input type="range" id="fontsize" name="volume" min="14" max="64" onchange="changeRange()"><span id="font">14px</span>
+    </body>
+    <script>
+        function changeHeader () {
+            console.log("change header has been clicked!.")
+            
+            // select/target HTML element
+            let header = document.getElementById("header")
+            let headertypes = document.getElementsByName("header") // HTML Collection []
+
+            // search for checked element in radio button
+            let value = "h1"
+            for (let element of headertypes) {
+                if(element.checked) {
+                    value = element.value
+                }
+            }
+
+            // manipulate HTML element
+            let text = header.firstElementChild.innerText
+            header.innerHTML = `<${value}>${text}</${value}>`
+        }
+
+        function changeRange () {
+            console.log("change range!")
+
+            // get range value
+            let range = document.getElementById("fontsize")
+            console.log(range.value)
+
+            let font = document.getElementById("font")
+            font.innerHTML = `${range.value}px`
+
+            // manipulate fontsize of <p>
+            let p = document.getElementsByTagName("p")[0]
+            p.style.fontSize = `${range.value}px`
+        }
+    </script>
+</html>
