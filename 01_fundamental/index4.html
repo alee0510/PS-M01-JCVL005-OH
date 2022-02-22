@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stop Watch</title>
+    </head>
+    <body>
+        <h1>Stopwatch App</h1>
+        <h1 id="timer">0h : 0m : 0s</h1>
+
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset()">Reset</button>
+    </body>
+    <script>
+        let hour = 0
+        let minute = 0
+        let second = 0
+        
+        let h1 = document.getElementById("timer")
+        let intervalID
+
+        function start () {
+            intervalID = setInterval(updateTimer, 1000)
+        }
+
+        function updateTimer () {
+            second += 1
+
+            // check per-60 seconds
+            if (second === 60) {
+                minute += 1
+                second = 0
+            }
+
+            // check per-60 minutes
+            if (minute === 60) {
+                hour += 1
+                minute = 0
+                second = 0
+            }
+
+            // check per-24 hours
+            if (hour === 24) {
+                hour = 0
+                minute = 0
+                second = 0
+            }
+
+            h1.innerHTML = `${hour}h : ${minute}m : ${second}s`
+        }
+
+        function stop () {
+            clearInterval(intervalID)
+        }
+
+        function reset () {
+            clearInterval(intervalID)
+            hour = 0
+            minute = 0
+            second = 0
+
+            h1.innerHTML = `${hour}h : ${minute}m : ${second}s`
+        }
+
+    </script>
+</html>

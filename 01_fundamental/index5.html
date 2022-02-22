@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML Table</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+            }
+            td, th {
+                padding: 5px 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Student List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Program</th>
+                    <th>Batch</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+            <tbody>
+                <tr>
+                    <td>#</td>
+                    <td></td>
+                    <td>
+                        <input id="name" type="text" placeholder="student name"/>
+                    </td>
+                    <td>
+                        <input id="program" type="text" placeholder="program"/>
+                    </td>
+                    <td>
+                        <input id="batch" type="text" placeholder="batch"/>
+                    </td>
+                    <td>
+                        <button onclick="submit()">Submit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    <script>
+        let students = [
+            { id : "JCWD0102", name : "Rudeus", program : "JCWD", batch : "0005" },
+            { id : "JCWD0104", name : "Alvin", program : "JCWD", batch : "0005" },
+            { id : "JCWD0106", name : "Theo", program : "JCWD", batch : "0005" }
+        ]
+        let tbody = document.getElementById("tbody")
+
+        function showTable () {
+            let rows = ""
+            for (let i = 0; i < students.length; i++) {
+                rows += 
+                `<tr>
+                    <td>${i + 1}</td>
+                    <td>${students[i].id}</td>
+                    <td>${students[i].name}</td>
+                    <td>${students[i].program}</td>
+                    <td>${students[i].batch}</td>
+                    <td>
+                        <button onclick="remove(${i})">delete</button>
+                    </td>
+                </tr>`
+            }
+
+            tbody.innerHTML = rows
+        }
+
+        showTable()
+
+        function remove (index) {
+            students.splice(index, 1)
+
+            showTable()
+        }
+
+        function submit () {
+            let name = document.getElementById("name")
+            let program = document.getElementById("program")
+            let batch = document.getElementById("batch")
+
+            if (name.value === "" || program.value === "" || batch.value === "") return
+            
+            let numb = Date.now()
+            students.push({
+                id : program.value + numb.toString().substring(9),
+                name : name.value,
+                program : program.value,
+                batch : batch.value
+            })
+
+            showTable()
+            name.value = ""
+            program.value = ""
+            batch.value = ""
+        }
+    </script>
+</html>

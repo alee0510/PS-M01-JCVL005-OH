@@ -22,17 +22,33 @@
         function showList () {
             let list = ""
             for (let i = 0; i < tasks.length; i++) {
-                if (i === 0) {
+                if (tasks.length === 1 ) {
                     list += `<li>
                         ${tasks[i]} 
+                        <button disabled onclick="down(${i})">move down</button>
+                        <button onclick="up(${i})" disabled="true">move up</button>
                         <button onclick="remove(${i})">delete</button>
-                        <button disabled="true">move up</button>
+                    </li>`
+                } else if (i === 0) {
+                    list += `<li>
+                        ${tasks[i]} 
+                        <button onclick="down(${i})">move down</button>
+                        <button onclick="up(${i})" disabled="true">move up</button>
+                        <button onclick="remove(${i})">delete</button>
+                    </li>`
+                } else if (i === tasks.length - 1) {
+                    list += `<li>
+                        ${tasks[i]} 
+                        <button onclick="down(${i})" disabled>move down</button>
+                        <button onclick="up(${i})">move up</button>
+                        <button onclick="remove(${i})">delete</button>
                     </li>`
                 } else {
                     list += `<li>
                         ${tasks[i]} 
+                        <button onclick="down(${i})">move down</button>
+                        <button onclick="up(${i})">move up</button>
                         <button onclick="remove(${i})">delete</button>
-                        <button>move up</button>
                     </li>`
                 }
             }
@@ -57,6 +73,22 @@
 
         function remove (index) {
             tasks.splice(index, 1)
+
+            showList()
+        }
+
+        function down (index) {
+            let temp = tasks[index + 1]
+            tasks[index + 1] = tasks[index]
+            tasks[index] = temp
+
+           showList()
+        }
+
+        function up (index) {
+            let temp = tasks[index - 1]
+            tasks[index - 1] = tasks[index]
+            tasks[index] = temp
 
             showList()
         }

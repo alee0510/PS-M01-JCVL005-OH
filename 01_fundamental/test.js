@@ -1,2 +1,3 @@
-const number = Math.random(0, 1)*10
-console.log(number)
+let date = Date.now()
+
+console.log(date.toString().substring(9))

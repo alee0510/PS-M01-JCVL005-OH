@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML + CSSOM</title>
+        <style>
+            .button-circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 250ms ease-in;
+            }
+            
+            .button-circle:active {
+                opacity: 0.8;
+                transform: scale(0.9);
+            }
+            
+            .blue {
+                background-color: #3498db;
+                border: 5px solid #2980b9;
+            }
+            .purple {
+                background-color: #9b59b6;
+                border: 5px solid #8e44ad;
+            }
+            .yellow {
+                background-color: #f1c40f;
+                border: 5px solid #f39c12;
+            }
+            .green {
+                background-color: #2ecc71;
+                border: 5px solid #27ae60;
+            }
+            .red {
+                background-color: #e74c3c;
+                border: 5px solid #c0392b;
+            }
+
+            .box-container {
+                width: 500px;
+                height: 500px;
+                background-color: #ecf0f1;
+                border: 5px solid #2c3e50;
+                margin-top: 15px;
+                padding: 15px;
+                position: relative;
+            }
+            .box {
+                width: 80px;
+                height: 80px;
+                background-color: #3498db;
+                font-weight: bold;
+                color: #f2f2f2;
+                position: absolute;
+            }
+
+            .center {
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS Position</h1>
+        <p>Colors:</p>
+
+        <button class="button-circle blue" onclick="changeColor('#3498db')">1</button>
+        <button class="button-circle purple" onclick="changeColor('#9b59b6')">2</button>
+        <button class="button-circle yellow" onclick="changeColor('#f1c40f')">3</button>
+        <button class="button-circle green" onclick="changeColor('#2ecc71')">4</button>
+        <button class="button-circle red" onclick="changeColor('#e74c3c')">5</button>
+
+        <div class="box-container">
+            <div class="box">BOX</div>
+        </div>
+
+        <p>Positions:</p>
+        <button onclick="changePosition('top', 'left')">top-left</button>
+        <button onclick="changePosition('top', 'right')">top-right</button>
+        <button onclick="changePosition('bottom', 'left')">bottom-left</button>
+        <button onclick="changePosition('bottom', 'right')">bottom-right</button>
+        <button onclick="changePositionToCenter()">center</button>
+    </body>
+    <script>
+        let box = document.getElementsByClassName("box")[0]
+
+        function changeColor(hex) {
+            box.style.backgroundColor = hex
+        }
+
+        function changePosition(x, y) {
+            box.className = "box"
+            box.style.top = ""
+            box.style.left = ""
+
+            box.style[x] = `15px`
+            box.style[y] = `15px`
+        }
+
+        function changePositionToCenter () {
+            box.className += " center"
+        }
+
+    </script>
+</html>
