@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic CSS Layout</title>
+        <style>
+            body {
+                width: 100vw;
+                height: 100vh;
+                margin: 0px;
+                display: flex;
+                flex-direction: column;
+                font-size: 28px;
+                color: #f2f2f2;
+                font-weight: bold;
+            }
+            navbar {
+                background-color: #3498db;
+                width: 100%;
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            footer {
+                background-color: #f1c40f;
+                width: 100%;
+                flex-grow: 0.5;
+            }
+            section {
+                width: 100%;
+                background-color: #bdc3c7;
+                flex-grow: 8.5;
+                display: flex;
+                flex-direction: row;
+            }
+            aside {
+                flex-grow: 1;
+                background-color: #9b59b6;
+            }
+            article {
+                flex-grow: 3;
+                display: flex;
+                flex-direction: column;
+            }
+            .contents {
+                flex-grow: 1;
+                background-color: #e74c3c;
+            }
+            .articles {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: row;
+            }
+            .article-01 {
+                flex-grow: 1;
+                background-color: #1abc9c;
+            }
+            .article-02 {
+                flex-grow: 1;
+                background-color: #2ecc71;
+            }
+
+            @media screen and (max-width : 1194px) {
+                /* css for screen with max-width : 400px */
+                section {
+                    flex-direction: row-reverse;
+                }
+                .articles {
+                    flex-direction: column;
+                }
+            }
+
+            @media screen and (max-width : 375px) {
+                section {
+                    flex-direction: column;
+                }
+                .articles {
+                    flex-direction: row;
+                }
+            }
+        </style>
+    </head>
+    <!-- flex-container -->
+    <body> 
+        <!-- flex-items -->
+        <navbar>Navbar</navbar>
+        <section>
+            <aside>Navigation</aside>
+            <article>
+                <div class="contents">Contents</div>
+                <div class="articles">
+                    <div class="article-01">Article-01</div>
+                    <div class="article-02">Article-02</div>
+                </div>
+            </article>
+        </section>
+        <footer>Footer</footer>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Layout 02</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0px;
+                display: flex;
+                height: 100vh;
+                width: 100vw;
+            }
+
+            .left-box {
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 1%;
+                /* background-color: #9b59b6; */
+            }
+            .right-box {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* background-color: red; */
+                flex-grow: 1;
+            }
+
+            /* card-style */
+            .card {
+                border-radius: 25px;
+                padding: 2% 3%;
+            }
+            .card-avatar {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .card-header {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 10px;
+            }
+            .card-info {
+                margin-left: 15px;
+            }
+            .card-info > h1, .card-info > p {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .size-small {
+                flex-basis: calc(100% * 1 / 4);
+                margin: 10px;
+            }
+            .size-large {
+                width: calc(100% * 2.8 / 4);
+                margin: 10px;
+            }
+            .size-tall {
+                height: 93%;
+            }
+
+            /* utility - color */
+            .purple {
+                background-color: #9b59b6;
+            }
+            .cloud {
+                background-color: #ecf0f1;
+            }
+            .black {
+                background-color: #34495e;
+            }
+            .green {
+                background-color: #2ecc71;
+            }
+
+            /* utility - avatar */
+            .avatar-01 {
+                background-image: url('/assets/01_jc.svg');
+                background-size: cover;
+            }
+            .avatar-02 {
+                background-image: url('/assets/02_mt.svg');
+                background-size: cover;
+            }
+            .avatar-03 {
+                background-image: url('/assets/03_dss.svg');
+                background-size: cover;
+            }
+            .avatar-04 {
+                background-image: url('/assets/04_kdo.svg');
+                background-size: cover;
+            }
+            .avatar-05 {
+                background-image: url('/assets/05_jkh.svg');
+                background-size: cover;
+            }
+
+            .color-white {
+                color: #ecf0f1;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="left-box">
+            <div class="card cloud size-small">
+                <div class="card-header">
+                    <div class="card-avatar avatar-01"></div>
+                    <div class="card-info">
+                        <h1>Jennifer KO. H</h1>
+                        <p>General Manager</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+            <div class="card black size-large">
+                <div class="card-header">
+                    <div class="card-avatar avatar-02"></div>
+                    <div class="card-info color-white">
+                        <h1>Jennifer KO. H</h1>
+                        <p>General Manager</p>
+                    </div>
+                </div>
+                <div class="card-body color-white">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+            <div class="card green size-large">
+                <div class="card-header">
+                    <div class="card-avatar avatar-03"></div>
+                    <div class="card-info color-white">
+                        <h1>Jennifer KO. H</h1>
+                        <p>General Manager</p>
+                    </div>
+                </div>
+                <div class="card-body color-white">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+            <div class="card cloud size-small">
+                <div class="card-header">
+                    <div class="card-avatar avatar-04"></div>
+                    <div class="card-info">
+                        <h1>Jennifer KO. H</h1>
+                        <p>General Manager</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <div class="card purple size-tall">
+                <div class="card-header">
+                    <div class="card-avatar avatar-05"></div>
+                    <div class="card-info">
+                        <h1>Jennifer KO. H</h1>
+                        <p>General Manager</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

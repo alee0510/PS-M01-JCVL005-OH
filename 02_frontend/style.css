@@ -1,0 +1,91 @@
+.card {
+    background-color: #34495e;
+    color: #f2f2f2;
+    padding: 3% 5%;
+    /* margin: 10px 10px; */
+    border-radius: 25px;
+}
+.card-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+}
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card-info {
+    margin-left: 15px;
+}
+.card-info > h1, .card-info > p {
+    margin: 0px;
+}
+.card-info > h1 {
+    font-size: 24px;
+}
+.card-body {
+    margin-top: 15px;
+}
+/* color */
+.purple {
+    background-color: #9b59b6;
+}
+.cloud {
+    background-color: #ecf0f1;
+}
+.black {
+    background-color: #34495e;
+}
+.green {
+    background-color: #2ecc71;
+}
+
+.font-black {
+    color: #34495e;
+}
+
+/* layouting */
+body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        "one two two five"
+        "four four three five"
+        ;
+    gap: 20px 20px;
+}
+
+/* .col-span-2 {
+    grid-column: span 2;
+}
+
+.card:nth-of-type(5){
+    grid-column: 4 / 5;
+    grid-row: 1 / span 2;
+}
+
+.card:nth-of-type(3) {
+    grid-column: 3 / 4;
+}
+
+.card:nth-of-type(4) {
+    grid-row: 2 / 3;
+} */
+
+.one {
+    grid-area: one;
+}
+.two {
+    grid-area: two;
+}
+.three {
+    grid-area: three;
+}
+.four {
+    grid-area: four;
+}
+.five {
+    grid-area: five;
+}
