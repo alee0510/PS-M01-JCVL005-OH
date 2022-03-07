@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.navbar {
+    /* background-color: aqua; */
+    height: 109px;
+    width: 100%;
+    padding: 0px 8%;
+    border-bottom: 1px solid #f4f4f4;
+}
+.content {
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+}
+.content-left {
+    height: 100%;
+    width: 50%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.content-right {
+    height: 100%;
+    flex-grow: 1;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+    width: 20%;
+    /* background-color: bisque; */
+    background-image: url(/assets/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.content-left > ul {
+    list-style: none;
+    
+}
+.content-left > ul > li {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    margin-right: 47px;
+    cursor: pointer;
+}
+.border-line {
+    width: 1px;
+    height: 50%;
+    background-color: #f4f4f4;
+    margin: 0px 35px;
+}
+
+.hero-banner {
+    /* background-color: yellow; */
+    width: 100%;
+    height: 619px;
+}
+button, input {
+    padding: 18px 48px;
+    border-radius: 26px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-weight: bold;
+}
+input {
+    border: 2px solid #EFEFEF;
+}
+
+button {
+    font-weight: 700;
+    font-weight: bold;
+}
+.filled {
+    background-color: #3D00B7;
+    color: white;
+    border: 1px solid #3D00B7;
+}
+.outline {
+    color: #3D00B7;
+    border: 2px solid #3D00B7;
+    background-color: white !important;
+}
